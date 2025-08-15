@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtered Stocks Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 1400px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        input[type="date"], input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], .toggle-btn {
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .message {
+            text-align: center;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        /* 10-K and 8-K Report Styles */
+        .report-container {
+            max-width: 1400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .report-container h1 {
+            color: #333;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .section {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            overflow: auto;
+            max-height: 400px;
+        }
+        .section h2 {
+            margin: 0;
+            padding: 8px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .section-content {
+            display: block;
+            padding: 8px;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+        p, ul, li {
+            margin: 5px 0;
+            padding: 0;
+            font-size: 0.9em;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .search-form {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if not report %}
+            <h1>Filtered Stocks Dashboard</h1>
+            <form method="POST">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" value="{{ selected_date }}">
+                <label for="ticker">Ticker Symbol:</label>
+                <input type="text" id="ticker" name="ticker" placeholder="e.g., AAPL" value="{{ ticker }}">
+                <input type="submit" value="Filter">
+            </form>
+
+            {% if message %}
+                <p class="message">{{ message }}</p>
+            {% endif %}
+
+            {% if data %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Addition Count</th>
+                            <th>Added Price ($)</th>
+                            <th>Recent Price ($)</th>
+                            <th>Price Change (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                            <tr>
+                                <td><a href="{{ url_for('report', ticker=row.ticker) }}">{{ row.ticker }}</a></td>
+                                <td>{{ row.addition_count }}</td>
+                                <td>{{ row.added_price }}</td>
+                                <td>{{ row.recent_added_price_n }}</td>
+                                <td>{{ row.price_change }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% else %}
+            <div class="report-container">
+                <h1>Report for {{ ticker }}</h1>
+                {% if cik and filing_date %}
+                <div class="section">
+                    <h2>Filing Overview</h2>
+                    <div class="section-content">
+                        <p><span class="highlight">CIK:</span> {{ cik }}</p>
+                        <p><span class="highlight">Filing Date:</span> {{ filing_date }}</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if ten_k_items %}
+                    <div class="section">
+                        <h2>10-K Report</h2>
+                        <div class="section-content">
+                            <p><span class="highlight">Filing Date:</span> {{ filing_date }}</p>
+                            <div class="grid-container">
+                                {% for item in ten_k_items %}
+                                    <div class="section">
+                                        <h2>{{ item['item_name'] | capitalize }}</h2>
+                                        <div class="section-content">
+                                            {{ item['formatted_content'] | safe }}
+                                            <p><span class="highlight">Processed At:</span> {{ item['processed_at'] }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>No 10-K data available for this ticker.</p>
+                {% endif %}
+
+                {% if eight_k_items %}
+                    <div class="section">
+                        <h2>8-K Filings</h2>
+                        {% for filing in eight_k_items %}
+                            <div class="filing">
+                                <p><strong>Filing Date:</strong> {{ filing.filing_date }}</p>
+                                <p><strong>Accession Number:</strong> {{ filing.accession_number }}</p>
+                                <p><strong>URL:</strong> <a href="{{ filing.url }}" target="_blank">{{ filing.url }}</a></p>
+                                <p><strong>Effect:</strong> {{ filing.effect }}</p>
+                                <p><strong>Prediction Text:</strong> {{ filing.stock_prediction.prediction_text }}</p>
+                                <h3>Processed Items:</h3>
+                                <ul>
+                                    {% for item in filing.processed_items %}
+                                        <li><strong>{{ item.item_name | capitalize }}:</strong> {{ item.processed_text }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No 8-K filings found for this ticker.</p>
+                {% endif %}
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="{{ url_for('index') }}" class="toggle-btn">Back to Dashboard</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

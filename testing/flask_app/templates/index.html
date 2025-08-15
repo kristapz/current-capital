@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .article-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .stock-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .stock-graph {
+            margin-bottom: 5px;
+        }
+        .article-metadata {
+            margin-bottom: 10px;
+        }
+        .article-metadata ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .article-metadata ul li {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Predictions vs Actual Prices</h1>
+    <form method="get" action="/">
+        <label for="sort_by">Sort by:</label>
+        <select name="sort_by" id="sort_by" onchange="this.form.submit()">
+            <option value="date" {% if sort_by == 'date' %}selected{% endif %}>Date</option>
+            <option value="percentage_change" {% if sort_by == 'percentage_change' %}selected{% endif %}>Percentage Change</option>
+            <option value="likelihood" {% if sort_by == 'likelihood' %}selected{% endif %}>Likelihood</option>
+        </select>
+    </form>
+    <hr>
+    {% for content, details in images.items() %}
+        <div class="article-section">
+            <p><strong>Article Content:</strong> {{ content }}</p>
+            <div class="article-metadata">
+                <p><strong>ID:</strong> {{ details.id }}</p>
+                <p><strong>Date:</strong> {{ details.date }}</p>
+                <p><strong>Sources:</strong>
+                    <ul>
+                        {% for source in details.sources %}
+                            <li><a href="{{ source.link }}">{{ source.publication }} - {{ source.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </p>
+            </div>
+            {% for item in details.plots_and_analyses %}
+                <div class="stock-section">
+                    <div class="stock-graph">
+                        <img src="{{ item.uri }}" alt="Graph for {{ item.ticker }}">
+                    </div>
+                    <p><strong>{{ item.ticker }} Analysis:</strong> {{ item.analysis }}</p>
+                    <p><strong>Percentage Change:</strong> {{ item.percentage_change }}%</p>
+                    <p><strong>Effect:</strong> {{ item.effect }}</p>
+                    <p><strong>Trend:</strong> {{ item.trend }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>

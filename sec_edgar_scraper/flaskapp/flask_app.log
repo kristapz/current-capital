@@ -1,0 +1,46 @@
+2024-10-30 13:54:38,494 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-10-30 13:54:38,495 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-30 13:54:38,496 - INFO -  * Restarting with stat
+2024-10-30 13:54:39,089 - WARNING -  * Debugger is active!
+2024-10-30 13:54:39,105 - INFO -  * Debugger PIN: 250-392-962
+2024-10-30 13:54:42,096 - INFO - Query successful. Retrieved 25 rows.
+2024-10-30 13:54:42,114 - INFO - 127.0.0.1 - - [30/Oct/2024 13:54:42] "GET / HTTP/1.1" 200 -
+2024-10-30 14:03:25,704 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-10-30 14:03:25,705 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-30 14:03:25,706 - INFO -  * Restarting with stat
+2024-10-30 14:03:26,317 - WARNING -  * Debugger is active!
+2024-10-30 14:03:26,332 - INFO -  * Debugger PIN: 250-392-962
+2024-10-30 14:03:34,163 - INFO - Query successful. Retrieved 35 rows.
+2024-10-30 14:03:34,181 - INFO - 127.0.0.1 - - [30/Oct/2024 14:03:34] "GET / HTTP/1.1" 200 -
+2024-10-30 14:03:34,227 - INFO - 127.0.0.1 - - [30/Oct/2024 14:03:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-10-31 12:26:53,657 - INFO -  * Detected change in '/Users/kristapszilgalvis/Desktop/current-capital/sec_edgar_scraper/filter_stocks.py', reloading
+2024-10-31 12:26:53,823 - INFO -  * Restarting with stat
+2024-10-31 12:26:54,554 - WARNING -  * Debugger is active!
+2024-10-31 12:26:54,572 - INFO -  * Debugger PIN: 250-392-962
+2024-11-01 20:02:36,912 - INFO -  * Detected change in '/Users/kristapszilgalvis/Desktop/current-capital/sec_edgar_scraper/investing_criteria.py', reloading
+2024-11-01 20:02:37,062 - INFO -  * Restarting with stat
+2024-11-01 20:02:37,753 - WARNING -  * Debugger is active!
+2024-11-01 20:02:37,770 - INFO -  * Debugger PIN: 250-392-962
+2024-11-01 20:03:48,369 - INFO -  * Detected change in '/Users/kristapszilgalvis/Desktop/current-capital/sec_edgar_scraper/filter_stocks.py', reloading
+2024-11-01 20:03:48,479 - INFO -  * Restarting with stat
+2024-11-01 20:03:49,126 - WARNING -  * Debugger is active!
+2024-11-01 20:03:49,141 - INFO -  * Debugger PIN: 250-392-962
+2024-11-01 20:04:05,205 - INFO - Query successful. Retrieved 6 rows.
+2024-11-01 20:04:05,224 - INFO - 127.0.0.1 - - [01/Nov/2024 20:04:05] "GET / HTTP/1.1" 200 -
+2024-11-04 14:58:03,144 - INFO -  * Detected change in '/Users/kristapszilgalvis/Desktop/current-capital/sec_edgar_scraper/filter_stocks.py', reloading
+2024-11-04 14:58:03,358 - INFO -  * Restarting with stat
+2024-11-04 14:58:04,113 - WARNING -  * Debugger is active!
+2024-11-04 14:58:04,131 - INFO -  * Debugger PIN: 250-392-962
+2024-11-04 15:21:38,137 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-04 15:21:38,137 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-04 15:21:38,138 - INFO -  * Restarting with stat
+2024-11-04 15:21:38,734 - WARNING -  * Debugger is active!
+2024-11-04 15:21:38,750 - INFO -  * Debugger PIN: 250-392-962
+2024-11-04 15:21:40,860 - INFO - Query successful. Retrieved 6 rows.
+2024-11-04 15:21:40,876 - INFO - 127.0.0.1 - - [04/Nov/2024 15:21:40] "GET / HTTP/1.1" 200 -
+2024-11-04 15:21:41,062 - INFO - 127.0.0.1 - - [04/Nov/2024 15:21:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-04 15:28:56,093 - INFO -  * Detected change in '/Users/kristapszilgalvis/Desktop/current-capital/sec_edgar_scraper/flaskapp/app.py', reloading
+2024-11-04 15:28:56,199 - INFO -  * Restarting with stat

@@ -1,0 +1,11 @@
+I am writing a review on all of our collective human knowledge on consciousness from all angles. Create a detailed list of all of the main points of this text. Extract the most important facts, statements, and speculation. Make sure to be accurate and detailed in your condensation of the main points in this text. You are writing notes for what will become a groundbreaking review on consciousness that combines human knowledge from a range of fields.
+Ensure that every fact is a minimum of 100 words long. This means the combination of the statement, evidence and context must be >100 words.
+Output your analysis in valid JSON format as shown below. Do not include any additional text outside of the JSON structure.
+
+{
+  "Fact n": {
+    "Statement": "A concise and accurate statement of the fact or concept.",
+    "Evidence": "Supporting studies, observations, or philosophical arguments.",
+    "Context": "How this fact fits within the broader narrative of consciousness research."
+  }
+}

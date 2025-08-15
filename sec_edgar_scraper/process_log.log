@@ -1,0 +1,56 @@
+2024-10-15 17:36:28,018 - INFO - Retrieved 16 tickers from BigQuery.
+2024-10-15 17:36:28,432 - INFO - Table test1-427219.backwards_testing.combined_filings_20241016 already exists.
+2024-10-15 17:36:28,433 - INFO - Processing ticker: ONCY
+2024-10-15 17:36:28,433 - INFO - Starting Scrapy spider 'edgar8k' for ticker: ONCY with args: ['scrapy', 'crawl', 'edgar8k', '-a', 'tickers=ONCY', '-a', 'max_documents=5']
+2024-10-15 17:36:31,560 - INFO - Scrapy spider 'edgar8k' completed successfully for ticker: ONCY
+2024-10-15 17:36:31,560 - INFO - Starting OpenAI processing script 'process10k/process8k_openai.py' for ticker: ONCY
+2024-10-15 17:36:34,324 - INFO - OpenAI processing script 'process10k/process8k_openai.py' completed successfully for ticker: ONCY
+2024-10-15 17:36:34,324 - INFO - Starting Scrapy spider 'edgarcisk' for ticker: ONCY with args: ['scrapy', 'crawl', 'edgarcisk', '-a', 'ticker=ONCY']
+2024-10-15 17:36:44,824 - INFO - Retrieved 6 tickers from BigQuery.
+2024-10-15 17:36:45,325 - INFO - Table test1-427219.backwards_testing.combined_filings_20241016 already exists.
+2024-10-15 17:36:45,325 - INFO - Processing ticker: APWC
+2024-10-15 17:36:45,325 - INFO - Starting Scrapy spider 'edgar8k' for ticker: APWC with args: ['scrapy', 'crawl', 'edgar8k', '-a', 'tickers=APWC', '-a', 'max_documents=5']
+2024-10-15 17:36:49,824 - INFO - Scrapy spider 'edgar8k' completed successfully for ticker: APWC
+2024-10-15 17:36:49,824 - INFO - Starting OpenAI processing script 'process10k/process8k_openai.py' for ticker: APWC
+2024-10-15 17:36:53,255 - INFO - OpenAI processing script 'process10k/process8k_openai.py' completed successfully for ticker: APWC
+2024-10-15 17:36:53,255 - INFO - Starting Scrapy spider 'edgarcisk' for ticker: APWC with args: ['scrapy', 'crawl', 'edgarcisk', '-a', 'ticker=APWC']
+2024-10-15 17:36:55,706 - INFO - Scrapy spider 'edgarcisk' completed successfully for ticker: APWC
+2024-10-15 17:36:55,706 - INFO - Starting OpenAI processing script 'process10k/process10k_openai.py' for ticker: APWC
+2024-10-15 17:36:58,236 - INFO - OpenAI processing script 'process10k/process10k_openai.py' completed successfully for ticker: APWC
+2024-10-15 17:36:58,797 - ERROR - Error querying or inserting data into BigQuery for ticker APWC: 400 Unrecognized name: item_name at [8:13]; reason: invalidQuery, location: query, message: Unrecognized name: item_name at [8:13]
+
+Location: US
+Job ID: fc240b47-2394-47eb-95de-eae586843cea
+
+2024-10-15 17:38:47,697 - INFO - Retrieved 6 tickers from BigQuery.
+2024-10-15 17:38:48,350 - INFO - Table test1-427219.backwards_testing.combined_filings_20241016 already exists.
+2024-10-15 17:38:48,350 - INFO - Processing ticker: APWC
+2024-10-15 17:38:48,350 - INFO - Starting Scrapy spider 'edgar8k' for ticker: APWC with args: ['scrapy', 'crawl', 'edgar8k', '-a', 'tickers=APWC', '-a', 'max_documents=5']
+2024-10-15 17:38:51,943 - INFO - Scrapy spider 'edgar8k' completed successfully for ticker: APWC
+2024-10-15 17:38:51,943 - INFO - Starting OpenAI processing script 'process10k/process8k_openai.py' for ticker: APWC
+2024-10-15 17:38:55,035 - INFO - OpenAI processing script 'process10k/process8k_openai.py' completed successfully for ticker: APWC
+2024-10-15 17:38:55,036 - INFO - Starting Scrapy spider 'edgarcisk' for ticker: APWC with args: ['scrapy', 'crawl', 'edgarcisk', '-a', 'ticker=APWC']
+2024-10-15 17:38:57,535 - INFO - Scrapy spider 'edgarcisk' completed successfully for ticker: APWC
+2024-10-15 17:38:57,535 - INFO - Starting OpenAI processing script 'process10k/process10k_openai.py' for ticker: APWC
+2024-10-15 17:39:00,623 - INFO - OpenAI processing script 'process10k/process10k_openai.py' completed successfully for ticker: APWC
+2024-10-15 17:39:00,960 - ERROR - Error querying or inserting data into BigQuery for ticker APWC: 400 Field name effect does not exist in STRUCT<item_name STRING, processed_text STRING, processed_at TIMESTAMP> at [11:18]; reason: invalidQuery, location: query, message: Field name effect does not exist in STRUCT<item_name STRING, processed_text STRING, processed_at TIMESTAMP> at [11:18]
+
+Location: US
+Job ID: ab6bd672-c3aa-4793-8ee8-27eb87a5f32b
+
+2024-10-15 17:40:38,238 - INFO - Retrieved 16 tickers from BigQuery.
+2024-10-15 17:40:38,722 - INFO - Table test1-427219.backwards_testing.combined_filings_20241016 already exists.
+2024-10-15 17:40:38,723 - INFO - Processing ticker: ONCY
+2024-10-15 17:40:38,723 - INFO - Starting Scrapy spider 'edgar8k' for ticker: ONCY with args: ['scrapy', 'crawl', 'edgar8k', '-a', 'tickers=ONCY', '-a', 'max_documents=5']
+2024-10-15 17:40:42,837 - INFO - Scrapy spider 'edgar8k' completed successfully for ticker: ONCY
+2024-10-15 17:40:42,837 - INFO - Starting OpenAI processing script 'process10k/process8k_openai.py' for ticker: ONCY
+2024-10-15 17:40:45,352 - INFO - OpenAI processing script 'process10k/process8k_openai.py' completed successfully for ticker: ONCY
+2024-10-15 17:40:45,352 - INFO - Starting Scrapy spider 'edgarcisk' for ticker: ONCY with args: ['scrapy', 'crawl', 'edgarcisk', '-a', 'ticker=ONCY']
+2024-10-15 17:40:48,341 - INFO - Scrapy spider 'edgarcisk' completed successfully for ticker: ONCY
+2024-10-15 17:40:48,341 - INFO - Starting OpenAI processing script 'process10k/process10k_openai.py' for ticker: ONCY
+2024-10-15 17:40:50,739 - INFO - OpenAI processing script 'process10k/process10k_openai.py' completed successfully for ticker: ONCY
+2024-10-15 17:40:51,127 - ERROR - Error querying or inserting data into BigQuery for ticker ONCY: 400 LEFT SEMI JOIN cannot be used without a condition that is an equality of fields from both sides of the join.; reason: invalidQuery, location: query, message: LEFT SEMI JOIN cannot be used without a condition that is an equality of fields from both sides of the join.
+
+Location: US
+Job ID: 4d7fe89b-9da1-446b-8af0-bfcd1406a027
+

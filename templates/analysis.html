@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Stock Analysis</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stock Analysis</h1>
+    {% for article in articles %}
+      <h2>Article Date: {{ article.date }}</h2>
+      <p>{{ article.summary }}</p>
+      <h3>Stock Analysis Results:</h3>
+      <table>
+        <tr>
+          <th>Ticker</th>
+          <th>Current Price</th>
+          <th>Analysis</th>
+        </tr>
+        {% for result in article.results %}
+          <tr>
+            <td>{{ result.symbol }}</td>
+            <td>{{ result.current_price }}</td>
+            <td>{{ result.analysis }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <h3>Final Analysis:</h3>
+      <p>{{ article.final_analysis }}</p>
+    {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,12 @@
+You are a classifier. Classify the following article into exactly one of these fields:
+[Philosophy of Mind], [Cognitive Neuroscience], [Neurobiology], [Psychology and Experimental Research], [Artificial Intelligence and Computational Models], [Psychedelics and Altered States of Consciousness], [Quantum Theories of Consciousness], [Cultural, Spiritual, and Anthropological Perspectives], [Physical Theories of Consciousness]
+
+Return ONLY valid JSON in the format:
+{
+  "field": "<one_of_the_fields>"
+}
+No yapping, only return the JSON
+
+
+
+
